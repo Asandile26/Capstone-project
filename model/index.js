@@ -150,7 +150,7 @@ class User {
 // Product
 class Product {
     fetchProducts(req, res) {
-        const box = `SELECT prodID, prodName, categories, price, size, imgURL,color
+        const box = `SELECT prodID, prodName, descript, categories, price, size, imgURL,color
         FROM Products;`;
         run.query(box, (err, results)=> {
             if(err) throw err;
@@ -158,7 +158,7 @@ class Product {
         });
     }
     fetchProduct(req, res) {
-        const box = `SELECT prodID, prodName, categories, price, size, imgURL, color
+        const box = `SELECT prodID, prodName, descript, categories, price, size, imgURL, color
         FROM Products
         WHERE prodID = ?;`;
         run.query(box, [req.params.id], (err, results)=> {
